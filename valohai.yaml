@@ -1,9 +1,10 @@
 ---
 - step:
       name: Task 1
-      image: ubuntu:20.04
+      image: python:3.9
       command:
-          - echo "{parameters}"
+          - pip install valohai-utils
+          - python code.py {parameters}
       parameters:
           - name: example
             description: Example parameter
@@ -12,9 +13,10 @@
 
 - step:
       name: Task 2
-      image: ubuntu:20.04
+      image: python:3.9
       command:
-          - echo "{parameters}"
+          - pip install valohai-utils
+          - python code.py {parameters}
       parameters:
           - name: example
             description: Example parameter
