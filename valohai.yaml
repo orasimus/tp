@@ -1,0 +1,36 @@
+---
+- step:
+      name: Task 1
+      image: ubuntu:20.04
+      command:
+          - echo "{parameters}"
+      parameters:
+          - name: example
+            description: Example parameter
+            type: integer
+            default: 300
+
+- step:
+      name: Task 2
+      image: ubuntu:20.04
+      command:
+          - echo "{parameters}"
+      parameters:
+          - name: example
+            description: Example parameter
+            type: integer
+            default: 300
+
+- pipeline:
+      name: Pipeline
+      edges:
+          - configuration: {}
+            source: node-1.parameter.example
+            target: node-2.parameter.example
+      nodes:
+          - name: node-1
+            step: Task 1
+            type: task
+          - name: node-2
+            step: Task 2
+            type: task
